@@ -531,6 +531,7 @@
         <artifactId>maven-pmd-plugin</artifactId>
         <version>${org.apache.maven.plugins.maven-pmd-plugin.version}</version>
         <configuration>
+          <typeResolution>false</typeResolution>
           <rulesets>
             <ruleset>${maven.multiModuleProjectDirectory}/config/pmd/teedy-metrics-ruleset.xml</ruleset>
           </rulesets>
