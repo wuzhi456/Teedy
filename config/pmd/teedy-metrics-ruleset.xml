@@ -4,7 +4,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
   <description>
-    Custom PMD ruleset focused on lecture metrics: LoC (NCSS), CC, CBO, plus WMC/cohesion-related checks (DataClass and GodClass).
+    Custom PMD ruleset focused on code quality metrics: LoC (NCSS), CC, CBO, plus WMC/cohesion-related checks (DataClass and GodClass).
   </description>
 
   <rule ref="category/java/design.xml/NcssCount" />
