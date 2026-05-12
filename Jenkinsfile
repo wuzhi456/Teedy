@@ -14,20 +14,17 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-        stage('Test') {
+        stage('Test & JaCoCo') {
             steps {
-                sh 'mvn test -Dmaven.test.failure.ignore=true'
+                sh 'pwd'
+                sh 'ls'
+                sh 'mvn test jacoco:report-aggregate'
             }
         }
         stage('PMD') {
             steps {
                 sh 'mvn pmd:pmd'
             }       
-        }
-        stage('JaCoCo') {
-            steps {
-                sh 'mvn test jacoco:report-aggregate'
-            }
         }
         stage('Javadoc') {
             steps {
@@ -53,5 +50,4 @@ pipeline {
             junit '**/target/surefire-reports/*.xml'
         }
     }
-    
 }
