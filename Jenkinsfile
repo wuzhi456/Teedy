@@ -18,6 +18,11 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls'
+                sh 'ls docs-core/target || true'
+                sh 'ls docs-core/target/jacoco.exec || true'
+                sh 'ls docs-web-common/target/jacoco.exec || true'
+                sh 'ls docs-web/target/jacoco.exec || true'
+                sh 'ls docs-core/target/surefire-reports || true'
                 sh 'mvn test jacoco:report-aggregate'
             }
         }
