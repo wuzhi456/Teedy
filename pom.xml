@@ -571,6 +571,12 @@
         <version>${org.jacoco.jacoco-maven-plugin.version}</version>
         <reportSets>
           <reportSet>
+            <id>default</id>
+            <reports>
+              <report>report</report>
+            </reports>
+          </reportSet>
+          <reportSet>
             <reports>
               <report>report-aggregate</report>
             </reports>
