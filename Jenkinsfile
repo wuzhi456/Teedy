@@ -4,14 +4,20 @@ pipeline {
         maven 'Maven-3.9'
     }
     environment {
-        DOCKER_IMAGE = 'wuzhi456/teedy-app'  
+        DOCKER_HUB_CREDENTIALS = 'dockerhub_credentials' // 改成你实际的凭据ID
+        DOCKER_IMAGE = 'wuzhi456/teedy-app'
         DOCKER_TAG = "${env.BUILD_NUMBER}"
     }
     stages {
-        stage('Build & Test & Site') {
+        stage('Build (install)') {
             steps {
                 sh 'pwd'
                 sh 'ls'
+                sh 'mvn -DskipTests clean install'
+            }
+        }
+        stage('Build & Test & Site') {
+            steps {
                 sh 'mvn clean test jacoco:report jacoco:report-aggregate site -Dmaven.test.failure.ignore=true'
             }
         }
